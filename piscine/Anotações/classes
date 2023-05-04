@@ -1,0 +1,13 @@
+The fyle system is the way in which files are organised on the hard-drive
+Imagine que diretorios sao caixas na qual pode se colocar mais caixas (subdiretorios) e nessas
+caixas voce pode colocar objetos (files)
+
+No sistema de arquivos voce possue varios tipos de arquivos, voce pode estar identificando o tipo do arquivo pela primeira coluna ao chama ls -l.
+
+o primeiro caractere da primeira coluna representa o tipo de arquivo, os proximos tres caracteres informam o nivel de permissao do usuario, os proximos 3 caracteres representam a permissao do grupo e os tres ultimos caracteres representam outras (todas) permissoes.
+
+drwxr-xr-x : o primeiro caractere nos diz que este eh um diretorio, os proximos tres caracteres representam que o usuario pode ler (r = read), escrever (write) e executar (x = execute), os proximos tres caracteres representam que o grupo que tem acesso a esse diretorio pode apenas ler e executar e os tres ultimos caracteres nos diz que o todos os outros q tem acesso podem ler e executar.
+
+-rw-r--r-- : o primeiro caractere nos diz que este e um arquivo (file), os tres proximos caracteres nos dizem que o usuario pode ler e escrever o arquivo, o grupo pode apenas ler o arquivo e os demais usuarios podem apenas ler.
+
+lrwxrwxrwx : o primeiro caractere nos diz que eh um link, e tantos os usuarios, os grupos e os outros podem ler, escrever e executar este link.
