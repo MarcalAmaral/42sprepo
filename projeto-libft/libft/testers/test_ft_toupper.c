@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   test_ft_toupper.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 20:26:52 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/04 00:00:21 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/03 23:33:27 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/03 23:59:32 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stdio.h>
+#include <ctype.h>
 
-int	ft_strlen(const char *s);
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-int	ft_tolower(int c);
-int	ft_toupper(int c);
+int	ft_tolower(int c)
+{
+	if (c >= 0x61 && c <= 0x7A)
+		return (c - 32);
+	return (c);
+}
 
-#endif
+int	main(void)
+{
+	printf("%d	%d\n", ft_tolower('z' + 1), tolower('z' + 1));
+	return (0);
+}

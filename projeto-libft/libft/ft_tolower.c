@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 20:26:52 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/04 00:00:21 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/03 23:33:27 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/03 23:52:21 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-int	ft_strlen(const char *s);
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-int	ft_tolower(int c);
-int	ft_toupper(int c);
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 0x41 && c <= 0x5A)
+		return (c + 32);
+	return (c);
+}

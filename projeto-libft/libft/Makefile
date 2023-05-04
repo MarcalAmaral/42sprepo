@@ -16,6 +16,8 @@ C_SOURCE =  ft_strlen.c \
 			ft_isalnum.c \
 			ft_isascii.c \
 	  		ft_isprint.c \
+			ft_tolower.c \
+			ft_toupper.c \
 
 # Object files
 OBJ = ft_strlen.o \
@@ -24,6 +26,8 @@ OBJ = ft_strlen.o \
 	  ft_isalnum.o \
 	  ft_isascii.o \
 	  ft_isprint.o \
+	  ft_tolower.o \
+	  ft_toupper.o \
 	  
 
 
@@ -41,4 +45,4 @@ clean:
 fclean: clean
 	rm -rf *$(NAME)
 
-re: clean all
+re: fclean all
