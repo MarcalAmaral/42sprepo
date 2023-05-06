@@ -6,34 +6,36 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 00:21:58 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/06 00:51:34 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:27:53 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int	atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int	signal;
-	int	stop;
+	int	result;
+	int i;
 
-	stop = 1;
+	i = 0;
 	signal = 1;
-	while ((*nptr == '\n') || (*nptr == '\f') || (*nptr == '\r') \
-	|| (*nptr == '\v') || (*nptr == '\t') || (*nptr == '\b'))
-		nptr++;
-	while (((*nptr == '-') || (*nptr == '+')) && stop--)
-	{	
-		if (*nptr == '-')
-			signal *= -1;
-		nptr++;
+	if (nptr[i] == '-')
+	{
+		signal *= -1;	
+		i++;
 	}
-	if (*)
+	while (*nptr != '\0')
+	{
+		result = result * 10 + nptr[i] - 0x30; 
+		i++;
+	}
+	return (result * signal);
 }
 
 int	main(void)
 {
-	printf("%d \n", atoi("                     -12      213213 iuahdiahsoi12121 dhasiud haiu shdiuoa"));
+	printf("%d \n", ft_atoi("                     -12      213213 iuahdiahsoi12121 dhasiud haiu shdiuoa"));
 	return (0);
 }
