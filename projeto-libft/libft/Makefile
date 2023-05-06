@@ -18,6 +18,8 @@ C_SOURCE =  ft_strlen.c \
 	  		ft_isprint.c \
 			ft_tolower.c \
 			ft_toupper.c \
+			ft_strdup.c	\
+			ft_memcpy.c	\
 
 # Object files
 OBJ = ft_strlen.o \
@@ -28,7 +30,8 @@ OBJ = ft_strlen.o \
 	  ft_isprint.o \
 	  ft_tolower.o \
 	  ft_toupper.o \
-	  
+	  ft_strdup.o	\
+	  ft_memcpy.o	\
 
 
 all: $(NAME)
