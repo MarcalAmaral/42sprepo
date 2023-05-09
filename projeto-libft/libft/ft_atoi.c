@@ -6,36 +6,32 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 00:21:58 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/06 16:27:53 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:43:09 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
 	int	signal;
 	int	result;
-	int i;
 
-	i = 0;
 	signal = 1;
-	if (nptr[i] == '-')
+	result = 0;
+	while (((*nptr >= 9) && (*nptr <= 13)) || *nptr == 32)
+		nptr++;
+	if ((*nptr == '-') || (*nptr == '+'))
 	{
-		signal *= -1;	
-		i++;
+		if (*nptr == '-')
+			signal *= -1;
+		nptr++;
 	}
-	while (*nptr != '\0')
+	while (ft_isdigit(*nptr))
 	{
-		result = result * 10 + nptr[i] - 0x30; 
-		i++;
+		result *= 10;
+		result += *nptr - '0';
+		nptr++;
 	}
 	return (result * signal);
-}
-
-int	main(void)
-{
-	printf("%d \n", ft_atoi("                     -12      213213 iuahdiahsoi12121 dhasiud haiu shdiuoa"));
-	return (0);
 }
