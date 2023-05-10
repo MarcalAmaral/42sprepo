@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:37:52 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/08 22:41:17 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/09 19:35:38 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	while (*s != (char) c)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
+		if (*s == 0)
+			return (NULL);
 		s++;
 	}
-	return (NULL);
+	return ((char *)s);
 }

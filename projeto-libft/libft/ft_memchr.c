@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 19:28:57 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/09 19:05:45 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/09 20:14:31 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/09 22:23:28 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <string.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char		*dest1;
-	const char	*src1;
-	size_t		i;
+	unsigned char	*s1;
 
-	dest1 = (char *)dest;
-	src1 = (const char *)src;
-	i = -1;
-	if (n == 0)
-		return (dest);
-	if (src + n < dest)
-		while (n--)
-			dest1[n] = src1[n];
-	else
-		while (i++, i < n)
-			dest1[i] = src1[i];
-	return (dest);
+	s1 = (unsigned char *) s;
+	while (n--)
+	{
+		if (*s1 == (char) c)
+			return (s1);
+		s1++;
+	}
+	return (NULL);
+}
+
+int	main(void)
+{
+	char s[] = "Acabate Amarelo";
+
+	printf("%s \n", memchr(s, 't', 6));
+	printf("%s \n", ft_memchr(s, 't', 6));
+	return (0);
 }
