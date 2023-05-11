@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 20:14:31 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/10 19:26:39 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/10 19:28:37 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/10 22:27:35 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*s1;
+	char	*s1;
 
-	s1 = (unsigned char *) s;
-	while (n--)
+	s1 = (char *) s + ft_strlen(s);
+	while (s1 >= s)
 	{
 		if (*s1 == (char) c)
-			return (s1);
-		s1++;
+			return ((char *)s1);
+		s1--;
 	}
 	return (NULL);
 }
