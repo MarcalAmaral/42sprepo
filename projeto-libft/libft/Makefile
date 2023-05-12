@@ -24,7 +24,12 @@ C_SOURCE =  ft_strlen.c \
 			ft_strchr.c 	\
 			ft_atoi.c 	\
 			ft_memchr.c 	\
-			ft_strrchr.c 	\
+			ft_strrchr.c	\
+			ft_bzero.c 	\
+			ft_memset.c 	\
+			ft_strncmp.c 	\
+			ft_strlcat.c 	\
+			ft_strlcpy.c 	\
 
 # Object files
 OBJ = ft_strlen.o \
@@ -42,6 +47,11 @@ OBJ = ft_strlen.o \
 	  ft_atoi.o 	\
 	  ft_memchr.o 	\
 	  ft_strrchr.o 	\
+	  ft_bzero.o 	\
+	  ft_memset.o 	\
+	  ft_strncmp.o 	\
+	  ft_strlcat.o 	\
+	  ft_strlcpy.o 	\
 
 all: $(NAME)
 

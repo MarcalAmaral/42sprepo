@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 20:14:31 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/11 23:39:40 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/11 23:21:50 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/12 01:14:34 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned char	*s1;
-
-	s1 = (unsigned char *) s;
-	while (n--)
+	while (*big)
 	{
-		if (*s1 == (unsigned char) c)
-			return (s1);
-		s1++;
-	}
-	return (NULL);
+		if (ft_strncmp(big, ))
+	}	
 }

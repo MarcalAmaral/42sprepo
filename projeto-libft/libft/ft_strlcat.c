@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 20:14:31 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/11 23:39:40 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/12 02:27:07 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/12 02:45:26 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+#include <stdio.h>
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned char	*s1;
+	size_t	lenght;
 
-	s1 = (unsigned char *) s;
-	while (n--)
+	while (*src && size--)
 	{
-		if (*s1 == (unsigned char) c)
-			return (s1);
-		s1++;
+		*dst = (unsigned char) *src;
+		dst++;
+		src++;
 	}
-	return (NULL);
+	lenght = ft_strlen((const char *)&src) + \
+	ft_strlen((const char *)&dst);
+	return (lenght);
 }
