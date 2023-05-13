@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:26:52 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/12 02:43:40 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/12 19:30:45 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_atoi(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
 void	*ft_bzero(void *s, size_t n);
