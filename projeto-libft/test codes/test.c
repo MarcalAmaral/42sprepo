@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/13 22:45:39 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/14 15:06:30 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/08 21:27:00 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/10 21:31:20 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <bsd/string.h>
-#include "libft.h"
+#include <string.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	main(void)
 {
-	size_t	len_src;
-	size_t	len_dst;
-	size_t	i;
+	char	*a = "Hello World!";
+	char	*init;
+	char	*h = "Hello World!";
+	int		i;
 
-	len_src = ft_strlen(src);
-	len_dst = ft_strlen(dst);
-	i = 0;
-	if (size < len_dst)
-		return ((size + len_src));
-	if (size > 0)
+	i = strlen(h);
+	h += i;
+	while (*h)
 	{
-		while (src[i] && len_dst < size - 1)
-		{
-			dst[len_dst] = src[i];
-			i++;
-			len_dst++;
-		}
-		dst[len_dst] = '\0';
+		printf("%c \n", *h);
+		h--;
 	}
-	return ((len_src + len_dst - i));
+	init = &*a;
+	printf("%c \n", *init);
+	printf("%p \n", a);
+	printf("%s \n", a - 1);
+	a += 5;
+	printf("%s \n", a);
+	return (0);
 }

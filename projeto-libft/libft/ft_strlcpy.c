@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 01:51:19 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/12 19:29:41 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/13 18:13:17 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
+	len = ft_strlen(src);
 	if (size <= 0)
-		return (ft_strlen(src));
+		return (len);
 	while (--size && *src)
 	{
 		*dst = *src;
 		dst++;
 		src++;
-		i++;
 	}
 	*dst = '\0';
-	return (ft_strlen(src));
+	return (len);
 }

@@ -5,33 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 21:27:00 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/10 21:31:20 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/14 17:26:19 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/14 17:36:49 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
-#include <string.h>
 
 int	main(void)
 {
-	char	*a = "Hello World!";
-	char	*init;
-	char	*h = "Hello World!";
-	int		i;
+	const char	*s = "ABCDE";
+	int			i;
 
-	i = strlen(h);
-	h += i;
-	while (*h)
+	i = 0;
+	while (i < 2)
 	{
-		printf("%c \n", *h);
-		h--;
+		s++;
+		i++;
 	}
-	init = &*a;
-	printf("%c \n", *init);
-	printf("%p \n", a);
-	printf("%s \n", a - 1);
-	a += 5;
-	printf("%s \n", a);
+	if (ft_strncmp(s, "CDE", 4) == 0)
+	{
+		printf("%s \n", s);
+	}
 	return (0);
 }

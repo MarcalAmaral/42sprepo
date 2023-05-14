@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy2.c                                      :+:      :+:    :+:   */
+/*   prototype_ft_strlcpy2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 01:51:19 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/12 03:21:25 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/13 17:50:38 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
-#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
 	i = 0;
-	printf("%p \n", dst);
 	if (size == 0)
 	{
 		return (ft_strlen(src));
@@ -30,14 +28,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		i++;
 		dst++;
 	}
-	printf("%p \n", dst);
-	printf("%lu \n", i);
 	dst[i] = '\0';
-	printf("%lu \n", i);
-	printf("%lu \n", i);
 	return (ft_strlen(src));
 }
-int		main(void)
+int	main(void)
 {
 	char	dest[50];
 	char	*src;

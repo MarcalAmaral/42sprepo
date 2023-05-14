@@ -6,10 +6,11 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 00:45:34 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/12 19:16:32 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/14 17:45:44 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
