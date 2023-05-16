@@ -6,15 +6,17 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:26:52 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/14 17:44:52 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/15 21:02:46 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
+# include <stdint.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_isalpha(int c);
@@ -38,5 +40,6 @@ char	*ft_strrchr(const char *s, int c);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_strnstr(const char *big, const char *little, size_t	len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

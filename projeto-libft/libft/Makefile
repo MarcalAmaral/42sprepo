@@ -1,5 +1,3 @@
-# My first makefile
-
 # Project name
 NAME = libft.a
 
@@ -32,6 +30,7 @@ C_SOURCE =  ft_strlen.c \
 			ft_strlcpy.c 	\
 			ft_memcmp.c 	\
 			ft_strnstr.c 	\
+			ft_substr.c 	\
 
 # Object files
 OBJ = ft_strlen.o \
@@ -56,6 +55,7 @@ OBJ = ft_strlen.o \
 	  ft_strlcpy.o 	\
 	  ft_memcmp.o 	\
 	  ft_strnstr.o 	\
+	  ft_substr.o 	\
 
 all: $(NAME)
 

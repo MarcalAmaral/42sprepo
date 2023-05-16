@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 23:21:50 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/14 17:49:04 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:52:07 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@
 char	*ft_strnstr(const char *big, const char *little, size_t	len)
 {
 	size_t	little_len;
-	size_t	i;
 
-	i = -1;
 	little_len = ft_strlen(little);
-	if (!little)
-		return ((char *) big);
-	while (i++, big[i] && (little_len - 1) < len--)
+	if (little_len < 1)
+		return ((char *)big);
+	while (*big && len-- >= little_len)
 	{
-		if (ft_strncmp((big + i), little, little_len) == 0)
-			return ((char *) little);
+		if (ft_strncmp(big, little, little_len) == 0)
+			return ((char *) big);
+		big++;
 	}
 	return (NULL);
 }

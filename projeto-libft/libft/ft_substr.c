@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 00:45:34 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/15 20:44:37 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/15 20:53:04 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/15 21:50:44 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	while ((*s1 || *s2) && n--)
-	{	
-		if ((unsigned char) *s1 != (unsigned char) *s2)
-			return ((unsigned char) *s1 - (unsigned char) *s2);
-		s1++;
-		s2++;
+	char	*substr;
+	int		c;
+
+	c = -1;
+	if (!s)
+		return (NULL);
+	if (ft_strlen(s + start) < len)
+		return (NULL);
+	if (ft_strlen(s) < len)
+		
+	substr = (char *) malloc(sizeof(char) * len + 1);
+	while (c++, s[start] && len--)
+	{
+		substr[c] = s[start];
+		start++;
 	}
-	return (0);
+	substr[c] = '\0';
+	return (substr);
 }
