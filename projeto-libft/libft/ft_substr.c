@@ -6,31 +6,23 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 20:53:04 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/15 21:50:44 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:42:26 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
-	int		c;
+	char	*ret;
 
-	c = -1;
 	if (!s)
 		return (NULL);
+	if (ft_strlen(s) < start)
+		len = 0;
 	if (ft_strlen(s + start) < len)
-		return (NULL);
-	if (ft_strlen(s) < len)
-		
-	substr = (char *) malloc(sizeof(char) * len + 1);
-	while (c++, s[start] && len--)
-	{
-		substr[c] = s[start];
-		start++;
-	}
-	substr[c] = '\0';
-	return (substr);
+		len = ft_strlen(s + start);
+	ret = (char *) malloc(len + 1);
+	ft_strlcpy(ret, s + start, len + 1);
+	return (ret);
 }

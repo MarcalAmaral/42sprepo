@@ -30,6 +30,7 @@ C_SOURCE =  ft_strlen.c \
 			ft_strlcpy.c 	\
 			ft_memcmp.c 	\
 			ft_strnstr.c 	\
+			ft_strjoin.c 	\
 			ft_substr.c 	\
 
 # Object files
@@ -55,6 +56,7 @@ OBJ = ft_strlen.o \
 	  ft_strlcpy.o 	\
 	  ft_memcmp.o 	\
 	  ft_strnstr.o 	\
+	  ft_strjoin.o 	\
 	  ft_substr.o 	\
 
 all: $(NAME)
