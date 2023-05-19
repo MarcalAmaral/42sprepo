@@ -31,7 +31,11 @@ C_SOURCE =  ft_strlen.c \
 			ft_memcmp.c 	\
 			ft_strnstr.c 	\
 			ft_strjoin.c 	\
-			ft_substr.c 	\
+			ft_putendl_fd.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putnbr_fd.c \
+			ft_strmapi.c \
 
 # Object files
 OBJ = ft_strlen.o \
@@ -57,7 +61,11 @@ OBJ = ft_strlen.o \
 	  ft_memcmp.o 	\
 	  ft_strnstr.o 	\
 	  ft_strjoin.o 	\
-	  ft_substr.o 	\
+	  ft_putendl_fd.o \
+	  ft_putchar_fd.o \
+	  ft_putstr_fd.o \
+	  ft_putnbr_fd.o \
+	  ft_strmapi.o \
 
 all: $(NAME)
 

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 20:02:10 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/17 20:41:32 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/17 21:05:00 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/18 21:13:39 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*ret;
+	unsigned int		ncpy;
 
-	if (!s1 && !s2)
-		return (0);
-	ret = (char *) malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!ret)
-		return (NULL);
-	ft_strlcpy(ret, s1, ft_strlen(s1) + 1);
-	ft_strlcat(ret, s2, ft_strlen(ret) + ft_strlen(s2) + 1);
-	return (ret);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	ncpy = n;
+	if (ncpy >= 10)
+	{
+		ft_putnbr_fd(ncpy / 10, fd);
+		ft_putnbr_fd(ncpy % 10, fd);
+	}
+	else
+		ft_putchar_fd(ncpy + 48, fd);
 }

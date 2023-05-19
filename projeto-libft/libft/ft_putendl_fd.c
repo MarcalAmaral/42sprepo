@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 20:02:10 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/17 20:41:32 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/05/17 20:41:42 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/05/17 21:02:43 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+void	ft_putendl_fd(char *s, int fd)
 {
-	char	*ret;
-
-	if (!s1 && !s2)
-		return (0);
-	ret = (char *) malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!ret)
-		return (NULL);
-	ft_strlcpy(ret, s1, ft_strlen(s1) + 1);
-	ft_strlcat(ret, s2, ft_strlen(ret) + ft_strlen(s2) + 1);
-	return (ret);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }
