@@ -35,7 +35,7 @@ C_SOURCE =  ft_strlen.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putnbr_fd.c \
-			ft_strmapi.c \
+			ft_calloc.c \
 
 # Object files
 OBJ = ft_strlen.o \
@@ -65,7 +65,7 @@ OBJ = ft_strlen.o \
 	  ft_putchar_fd.o \
 	  ft_putstr_fd.o \
 	  ft_putnbr_fd.o \
-	  ft_strmapi.o \
+	  ft_calloc.o \
 
 all: $(NAME)
 
@@ -82,3 +82,7 @@ fclean: clean
 	rm -rf *$(NAME)
 
 re: fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(C_SOURCE)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)

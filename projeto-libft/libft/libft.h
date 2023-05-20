@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:26:52 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/18 21:56:20 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:40:31 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ char	*ft_strjoin(const char *s1, const char *s2);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char *));
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
