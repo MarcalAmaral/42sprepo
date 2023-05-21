@@ -36,6 +36,8 @@ C_SOURCE =  ft_strlen.c \
 			ft_putstr_fd.c \
 			ft_putnbr_fd.c \
 			ft_calloc.c \
+			ft_striteri.c \
+			ft_strmapi.c \
 
 # Object files
 OBJ = ft_strlen.o \
@@ -66,6 +68,8 @@ OBJ = ft_strlen.o \
 	  ft_putstr_fd.o \
 	  ft_putnbr_fd.o \
 	  ft_calloc.o \
+	  ft_striteri.o \
+	  ft_strmapi.o \
 
 all: $(NAME)
 

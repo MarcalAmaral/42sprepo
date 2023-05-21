@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 22:31:12 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/18 22:47:35 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/20 21:46:42 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,23 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*s;
-	unsigned int	len;
+	unsigned int	i;
+	char			*ret;
 
-	len = (unsigned int) ft_strlen(s);
-	s = (char *) malloc(char * (len + 1))
-	while ()
-}
-
-char	ft_str(unsigned int len, char c)
-{
-	if (len != 0)
-		
+	if (!s)
+		return ("\0");
+	i = 0;
+	while (s[i])
+		i++;
+	ret = (char *) malloc(i + 1);
+	if (!ret)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		ret[i] = f(i, s[i]);
+		i++;
+	}
+	ret[i] = '\0';
+	return (ret);
 }

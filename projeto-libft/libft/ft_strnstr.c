@@ -6,12 +6,10 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 23:21:50 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/15 19:52:07 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/20 20:36:50 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <bsd/string.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t	len)

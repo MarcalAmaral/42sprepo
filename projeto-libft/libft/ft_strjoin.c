@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 20:02:10 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/17 20:41:32 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/20 21:47:31 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*ret;
 
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (0);
-	ret = (char *) malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	ret = (char *) malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!ret)
 		return (NULL);
 	ft_strlcpy(ret, s1, ft_strlen(s1) + 1);
