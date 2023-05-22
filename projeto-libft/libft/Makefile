@@ -38,6 +38,7 @@ C_SOURCE =  ft_strlen.c \
 			ft_calloc.c \
 			ft_striteri.c \
 			ft_strmapi.c \
+			ft_itoa.c \
 
 # Object files
 OBJ = ft_strlen.o \
@@ -70,6 +71,7 @@ OBJ = ft_strlen.o \
 	  ft_calloc.o \
 	  ft_striteri.o \
 	  ft_strmapi.o \
+	  ft_itoa.o \
 
 all: $(NAME)
 
