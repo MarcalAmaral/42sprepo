@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:46:06 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/16 20:01:08 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/23 21:34:49 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*src1;
 	size_t			i;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	i = 0;
 	dest1 = (unsigned char *) dest;
 	src1 = (unsigned char *) src;

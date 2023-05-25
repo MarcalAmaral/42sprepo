@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 22:45:39 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/14 15:06:30 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/23 21:22:19 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	len_dst;
 	size_t	i;
 
+	if ((!dst || !src) && size == 0)
+		return (0);
 	len_src = ft_strlen(src);
 	len_dst = ft_strlen(dst);
 	i = 0;
