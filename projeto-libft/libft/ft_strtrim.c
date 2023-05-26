@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 21:39:05 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/24 20:31:03 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/26 00:17:11 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ret;
+	size_t	s_string;
+	size_t	end_string;
+	size_t	alloc;
+	char	*ptr;
 
-	
+	if (!s1)
+		return (ft_strdup(""));
+	if (!set)
+		return ((char *) s1);
+	s_string = 0;
+	end_string = ft_strlen(s1);
+	while (ft_strchr(set, *(s1 + s_string)))
+		s_string += 1;
+	while (ft_strchr(set, *(s1 + end_string - 1)))
+		end_string -= 1;
+	alloc = end_string - s_string;
+	ptr = ft_substr(s1, s_string, alloc);
+	return (ptr);
 }
-
-char	*erase_end(const char *s, char const *set)
-{
-	char	*ret;
-	size_t	len_s;
-	size_t	i;
-
-	len_s = ft_strlen(s);
-	i = len_s;
-	ret = (char *) s;
-	
-	while (*(ret + len_s) != *ret)
-	{
-		while (*(ret + len_s) != )
-		len_s--
-	}
-}
-
-char	*erase_begin(const char *s, char const *set)

@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:26:52 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/05/23 19:15:34 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/05/25 23:23:48 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_itoa(int n);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strtrim(const char *s1, const char *set);
 
 #endif

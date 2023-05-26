@@ -40,6 +40,7 @@ C_SOURCE =  ft_strlen.c \
 			ft_strmapi.c \
 			ft_itoa.c \
 			ft_substr.c \
+			ft_strtrim.c \
 
 # Object files
 OBJ = ft_strlen.o \
@@ -74,6 +75,7 @@ OBJ = ft_strlen.o \
 	  ft_strmapi.o \
 	  ft_itoa.o \
 	  ft_substr.o \
+	  ft_strtrim.o \
 
 all: $(NAME)
 
@@ -91,6 +93,5 @@ fclean: clean
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(C_SOURCE)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+build: $(OBJ)
+	gcc -g $(OBJ) str_trim_test.c -I.

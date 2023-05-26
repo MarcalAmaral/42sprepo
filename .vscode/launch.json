@@ -8,7 +8,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "${workspaceFolder}/projeto-libft/libft/<executable file>",
+			"program": "/nfs/homes/myokogaw/42cursus/projeto-libft/libft/a.out",
 			"args": [],
 			"cwd": "${workspaceFolder}"
 		}
