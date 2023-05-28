@@ -93,5 +93,6 @@ fclean: clean
 
 re: fclean all
 
-build: $(OBJ)
-	gcc -g $(OBJ) str_trim_test.c -I.
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(C_SOURCE)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
