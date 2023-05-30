@@ -41,6 +41,7 @@ C_SOURCE =  ft_strlen.c \
 			ft_itoa.c \
 			ft_substr.c \
 			ft_strtrim.c \
+			ft_split.c \
 
 # Object files
 OBJ = ft_strlen.o \
@@ -76,6 +77,7 @@ OBJ = ft_strlen.o \
 	  ft_itoa.o \
 	  ft_substr.o \
 	  ft_strtrim.o \
+	  ft_split.o \
 
 all: $(NAME)
 
