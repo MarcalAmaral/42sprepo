@@ -1,0 +1,1 @@
+clear && cc -g new_gnl.c && ./a.out
