@@ -6,14 +6,13 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 18:43:27 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/06/10 22:02:23 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:11:15 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	1 - limpar o inicio da próxima linha (concluded)
-	1.5 - salvar a primeira linha como temp
-	2 - salvar o incio da próxima linha
+	2 - salvar o incio da próxima linha 
 	3 - inserir o início da pŕoxima linha no local certo
 */
 
@@ -99,7 +98,6 @@ static int	count_words(const char *s, char c)
 	return (counter);
 }
 
-
 char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*ret;
@@ -119,16 +117,6 @@ char	*ft_strjoin_free(char *s1, char *s2)
 		ret[i++] = s2[j];
 	ret[i] = '\0';
 	return (ret);
-}
-
-
-char	*line(char *lake, char *buffer)
-{
-	// char	*temp;
-
-	lake = ft_strjoin_free(lake, buffer);
-	// temp = malloc((ft_strlen(lake)) + 1) * sizeof(char);
-	return (lake);
 }
 
 char	*ft_strchr(const char *s, int c)
@@ -152,7 +140,7 @@ char	**clean_lake(char *lake)
 
 	matriz = malloc(sizeof(char *) * 2);
 	i = 0;
-	while(lake[i] != '\n')
+	while (lake[i] != '\n')
 		i++;
 	str = malloc((i + 1) * sizeof(char));
 	i = 0;
@@ -165,7 +153,7 @@ char	**clean_lake(char *lake)
 	}
 	str[i] = lake[j];
 	i = 0;
-	while(lake[i] != '\n')
+	while (lake[i] != '\n')
 		i++;
 	while (j++, lake[j + 1])
 		temp[i++] = lake[j + 1];
@@ -177,8 +165,8 @@ char	*get_next_line(int fd)
 {
 	int			bytes_read;
 	char		*buffer;
-	static char *lake;
-	char	**matriz;
+	static char	*lake;
+	char		**matriz;
 
 	buffer = malloc(BUFFER_SIZE * sizeof(char));
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -198,8 +186,8 @@ char	*get_next_line(int fd)
 
 int	main(void)
 {
-	char *line;
-	int	fd;
+	char	*line;
+	int		fd;
 
 	fd = open("file.txt", 'r');
 	line = get_next_line(fd);

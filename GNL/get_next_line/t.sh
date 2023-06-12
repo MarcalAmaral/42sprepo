@@ -1,1 +1,1 @@
-clear && cc -g new_gnl.c && ./a.out
+clear && cc -g -Werror -Wextra -Wall get_next_line_clean.c && ./a.out

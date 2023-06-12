@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_clean.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:20:21 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/06/11 19:20:32 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/06/11 21:25:31 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ char	*ft_strjoin_free(char *lake, char *buffer)
 	j = -1;
 	while (j++, buffer[j] != '\0')
 		ret[i++] = buffer[j];
-	free(lake);
 	ret[i] = '\0';
+	free(lake);
 	return (ret);
 }
 
 char	**clean_lake(char *lake)
 {
 	char	**matriz;
-	int		i;
 	int		j;
+	int		i;
 
 	i = 0;
 	matriz = (char **) malloc(3 * sizeof(char *));
@@ -77,23 +77,20 @@ char	**clean_lake(char *lake)
 	while (j++, j < ft_strlen(lake))
 		matriz[1][i++] = lake[j];
 	free(lake);
-	matriz[2] = "\0";
+	matriz[2] = NULL;
 	return (matriz);
 }
 
 char	*get_next_line(int fd)
 {
 	char		**matriz;
-	static char	*lake;
 	char		*buffer;
+	static char	*lake;
 	int			bytes_read;
-	char		*line;
 
 	buffer = malloc(BUFFER_SIZE * sizeof(char));
 	if (!lake)
 		lake = malloc(BUFFER_SIZE * sizeof(char));
-	if (!lake)
-		return (NULL);
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	while (bytes_read > 0)
 	{
@@ -102,18 +99,22 @@ char	*get_next_line(int fd)
 			break ;
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 	}
-	matriz = (char **) malloc(2 * sizeof(char *));
+	matriz = (char **) calloc(3, sizeof(char *));
 	matriz = clean_lake(lake);
 	lake = matriz[1];
-	line = matriz[0];
-	return (line);
+	buffer = matriz[0];
+	free(matriz);
+	return (buffer);
 }
 
 int	main(void)
 {
-	int	fd;
+	int fd;
 
 	fd = open("file.txt", 'r');
+	printf("%s \n", get_next_line(fd));
+	printf("%s \n", get_next_line(fd));
+	printf("%s \n", get_next_line(fd));
 	printf("%s \n", get_next_line(fd));
 	return (0);
 }
