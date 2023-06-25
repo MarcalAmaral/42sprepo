@@ -1,1 +1,0 @@
-clear && cc -g -Werror -Wextra -Wall get_next_line_clean.c && ./a.out
