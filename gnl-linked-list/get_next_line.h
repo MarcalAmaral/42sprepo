@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/15 22:08:10 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/06/26 19:25:47 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/06/27 19:30:43 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/06/28 23:56:06 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,30 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100000
+#  define BUFFER_SIZE 30
 # endif
 
-# include <unistd.h>
 # include <stdlib.h>
 
-char	*clean_lake(char *lake);
-char	*ft_strdup(char *s);
-char	*get_next_line(int fd);
-char	*ft_strchr(char *s1, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*get_line(char *lake);
-size_t	ft_strlen(char *s);
-char	*read_function(int fd, char *lake, char *buffer);
+typedef struct s_node {
+	char			content;
+	struct s_node	*next;
+}	t_node;
+
+typedef struct s_list {
+	t_node	*init;
+	int		bytes_read;
+	int		len;
+	char	buffer[BUFFER_SIZE];
+	t_node	*line;
+}	t_list;
+
+void	print_list(t_list *list);
+void	insert_string_end(t_list *list, char *content);
+void	insert_string_init(t_list *list, char *content);
+void	insert_end(t_list *list, char content);
+void	insert_init(t_list *list, char content);
+size_t	ft_strlen(char *string);
+t_node	*new_node(char content);
 
 #endif

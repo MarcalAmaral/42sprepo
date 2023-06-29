@@ -6,7 +6,7 @@
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 22:07:52 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/06/25 18:36:55 by myokogaw         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:08:05 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	*ft_strchr(char *lake, int c)
 	size_t	i;
 
 	i = 0;
+	if (lake == NULL)
+		return (NULL);
 	while (lake[i] != '\0')
 	{
 		if (lake[i] == c)
@@ -59,10 +61,10 @@ size_t	ft_strlen(char *s)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*ret;
-	int		lens1;
-	int		lens2;
-	int		i;
-	int		j;
+	size_t	lens1;
+	size_t	lens2;
+	size_t	i;
+	size_t	j;
 
 	if (!s1 && !s2)
 		return (NULL);
@@ -71,16 +73,17 @@ char	*ft_strjoin(char *s1, char *s2)
 	ret = (char *) malloc((lens1 + lens2 + 1) * sizeof(char));
 	if (!ret)
 		return (NULL);
-	i = -1;
-	while (i++, i < lens1)
-		ret[i] = s1[i];
-	j = -1;
-	while (j++, j < lens2)
+	i = 0;
+	while (i < lens1)
 	{
-		ret[i] = s2[j];
+		ret[i] = s1[i];
 		i++;
 	}
+	j = 0;
+	while (j < lens2)
+		ret[i++] = s2[j++];
 	ret[i] = '\0';
+	free(s1);
 	return (ret);
 }
 
@@ -88,8 +91,11 @@ char	*get_line(char *lake)
 {
 	char	*line;
 	int		i;
+	int		j;
 
 	i = 0;
+	if (!lake)
+		return (NULL);
 	while (lake[i] != '\n' && lake[i] != '\0')
 		i++;
 	if (lake[i] == '\n')
@@ -98,11 +104,9 @@ char	*get_line(char *lake)
 	if (!line)
 		return (NULL);
 	i = 0;
+	j = 0;
 	while (lake[i] != '\n' && lake[i] != '\0')
-	{
-		line[i] = lake[i];
-		i++;
-	}
+		line[j++] = lake[i++];
 	line[i] = lake[i];
 	if (line[i] != '\0')
 		line[++i] = '\0';
