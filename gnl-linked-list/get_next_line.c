@@ -5,65 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 19:34:34 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/06/29 00:01:14 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/07/02 14:01:20 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/07/02 18:37:58 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdio.h>
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *string)
+char	*get_next_line(int fd)
 {
-	size_t	counter;
+	static t_vars	vars;
 
-	counter = 0;
-	while (string[counter] != '\0')
-		counter++;
-	return (counter);
-}
-
-void	print_list(t_list *list)
-{
-	t_node	*init;
-
-	init = list->init;
-	while (init != NULL)
+	if (vars.iter >= vars.bytes_read)
 	{
-		printf("%c", init->content);
-		init = init->next;
+		vars.iter = 0;
+		while (vars.iter <= BUFFER_SIZE)
+		{
+			vars.buffer[vars.iter] = '\0';
+			vars.iter++;
+		}
+		vars.iter = 0;
+		vars.len = 0;
+		vars.fd = fd;
+		vars.bytes_read = read(vars.fd, vars.buffer, BUFFER_SIZE);
 	}
-	printf("\n\n");
-}
-
-t_list	*get_next_line(int fd)
-{	
-	t_list	list;
-	t_node	*temp;
-
-	list.bytes_read = read(fd, list.buffer, BUFFER_SIZE);
-	while (list.buffer[list.len] != '\0')
-	{
-		temp = list.line;
-		insert_string_end(&list, list.buffer[list.len]);
-	}
-	return (&list);
-}
-
-int	main(void)
-{
-	// t_list	list;
-	
-	int		fd;
-
-	fd = open("file.txt", O_RDONLY);
-	print_list(get_next_line(fd));
-	// list.init = NULL;
-	// list.len = 0;
-	// insert_string_end(&list, "Abobrinha ");
-	// insert_string_end(&list, "Abacate");
-	// insert_string_init(&list, "feijaozinho ");
-	// print_list(&list);
-	return (0);
+	if (vars.bytes_read <= 0)
+		return (NULL);
+	return (ft_cpybuffer(&vars));
 }

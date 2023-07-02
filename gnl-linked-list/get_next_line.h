@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 19:30:43 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/06/28 23:56:06 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/07/02 13:42:06 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/07/02 18:38:20 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 30
+#  define BUFFER_SIZE 2
 # endif
 
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_node {
-	char			content;
+	char			byte;
 	struct s_node	*next;
-}	t_node;
+}	t_byte;
 
-typedef struct s_list {
-	t_node	*init;
-	int		bytes_read;
-	int		len;
-	char	buffer[BUFFER_SIZE];
-	t_node	*line;
-}	t_list;
+typedef struct s_vars {
+	t_byte		*str;
+	char		buffer[BUFFER_SIZE];
+	int			fd;
+	long long	iter;
+	long long	len;
+	long long	bytes_read;
+}	t_vars;
 
-void	print_list(t_list *list);
-void	insert_string_end(t_list *list, char *content);
-void	insert_string_init(t_list *list, char *content);
-void	insert_end(t_list *list, char content);
-void	insert_init(t_list *list, char content);
-size_t	ft_strlen(char *string);
-t_node	*new_node(char content);
+char	*get_next_line(int fd);
+t_byte	*ft_newnode(char content);
+void	ft_addend_list(t_byte **head, t_byte *new);
+char	*ft_cpybuffer(t_vars *vars);
+char	*ft_returnline(t_vars *vars);
 
 #endif

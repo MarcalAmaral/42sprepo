@@ -5,78 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokogaw <myokogaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 20:39:04 by myokogaw          #+#    #+#             */
-/*   Updated: 2023/06/28 23:55:52 by myokogaw         ###   ########.fr       */
+/*   Created: 2023/07/02 13:46:29 by myokogaw          #+#    #+#             */
+/*   Updated: 2023/07/02 18:37:53 by myokogaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-t_node	*new_node(char content)
+t_byte	*ft_newnode(char content)
 {
-	t_node	*new;
+	t_byte	*new;
 
-	new = (t_node *) malloc(sizeof(t_node));
-	new->content = content;
+	new = (t_byte *) malloc(1 * sizeof(t_byte));
 	new->next = NULL;
+	new->byte = content;
 	return (new);
 }
 
-void	insert_init(t_list *list, char content)
+void	ft_addend_list(t_byte **start, t_byte *new)
 {
-	t_node	*temp;
+	t_byte	*temp;
 
-	temp = (t_node *) malloc(sizeof(t_node));
-	temp->content = content;
-	temp->next = list->init;
-	list->init = temp;
-	list->len++;
-}
-
-void	insert_end(t_list *list, char content)
-{
-	t_node	*temp;
-	t_node	*new;
-
-	new = (t_node *) malloc(sizeof(t_node));
-	new->content = content;
-	new->next = NULL;
-	if (list->init == NULL)
+	if (!new)
+		return ;
+	if (!*start)
 	{
-		list->init = new;
+		*start = new;
 		return ;
 	}
-	else
+	temp = *start;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
+}
+
+char	*ft_cpybuffer(t_vars *vars)
+{
+	while (1)
 	{
-		temp = list->init;
-		while (temp->next != NULL)
-			temp = temp->next;
-		temp->next = new;
-		list->len++;
+		ft_addend_list(&vars->str, ft_newnode(*(vars->buffer + vars->iter)));
+		if (*(vars->buffer + vars->iter) == '\0' || \
+		*(vars->buffer + vars->iter) == '\n')
+			break ;
+		vars->iter++;
+		vars->len++;
+		if (vars->iter >= vars->bytes_read)
+		{
+			vars->iter = 0;
+			vars->bytes_read = read(vars->fd, vars->buffer, BUFFER_SIZE);
+			if (vars->bytes_read <= 0)
+				break ;
+		}
 	}
-	return ;
+	vars->iter++;
+	vars->len++;
+	return (ft_returnline(vars));
 }
 
-void	insert_string_init(t_list *list, char *content)
+char	*ft_returnline(t_vars *vars)
 {
-	int	i;
+	t_byte		*temp;
+	char		*line;
+	long long	i;
 
-	i = ft_strlen(content);
-	if (!content)
-		return ;
-	while (i--, content[i] != '\0')
-		insert_init(list, content[i]);
-	return ;
-}
-
-void	insert_string_end(t_list *list, char *content)
-{
-	int	i;
-
-	i = -1;
-	if (!content)
-		return ;
-	while (i++, content[i] != '\0')
-		insert_end(list, content[i]);
-	return ;
+	line = (char *) malloc((vars->len + 1) * sizeof(char));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (vars->str)
+	{
+		temp = vars->str->next;
+		line[i] = vars->str->byte;
+		free(vars->str);
+		vars->str = temp;
+		i++;
+	}
+	*(line + i) = '\0';
+	return (line);
 }
