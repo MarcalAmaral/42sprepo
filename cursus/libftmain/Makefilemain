@@ -1,0 +1,72 @@
+# Project name
+NAME = libft.a
+
+# Compiler
+CC = cc
+
+# Compiler flags
+CFLAGS = -Wall -Werror -Wextra
+
+# files
+FILES =  ft_strlen \
+		ft_isalpha \
+		ft_isdigit \
+		ft_isalnum \
+		ft_isascii \
+		ft_isprint \
+		ft_tolower \
+		ft_toupper \
+		ft_strdup	\
+		ft_memcpy	\
+		ft_memmove 	\
+		ft_strchr 	\
+		ft_atoi 	\
+		ft_memchr 	\
+		ft_strrchr	\
+		ft_bzero 	\
+		ft_memset 	\
+		ft_strncmp 	\
+		ft_strlcat 	\
+		ft_strlcpy 	\
+		ft_memcmp 	\
+		ft_strnstr 	\
+		ft_strjoin 	\
+		ft_putendl_fd \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putnbr_fd \
+		ft_calloc \
+		ft_striteri \
+		ft_strmapi \
+		ft_itoa \
+		ft_substr \
+		ft_strtrim \
+		ft_split \
+		get_next_line \
+		get_next_line_utils \
+
+# .c files
+C_SOURCE = $(addsuffix .c, $(FILES))
+
+# Object files
+OBJ = $(addsuffix .o, $(FILES))
+
+all: $(NAME)
+
+%.o: %.c %.h
+	$(CC) -o $@ $< $(CFLAGS)
+
+$(NAME): $(OBJ)
+	ar rcs $@ $^
+
+clean:
+	@rm -rf *.o
+
+fclean: clean
+	@rm -rf *$(NAME)
+
+re: fclean all
+
+# so:
+# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(C_SOURCE)
+# 	gcc -nostartfiles -shared -o libft.so $(OBJ)
